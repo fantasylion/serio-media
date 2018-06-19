@@ -1,4 +1,4 @@
-package com.serio.core.annotation.media;
+package com.serio.media.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

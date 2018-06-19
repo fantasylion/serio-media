@@ -16,23 +16,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.serio.core.media;
+package com.serio.media.core;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.serio.core.annotation.AnnotationProcesser;
-import com.serio.core.annotation.parser.ArgName;
-import com.serio.core.utils.ReflectionUtils;
+import com.serio.media.core.DefaultFFMPEGLocator;
+import com.serio.media.core.EncoderProgressListener;
+import com.serio.media.core.FFMPEGLocator;
+import com.serio.media.core.OptionProcesser;
+import com.serio.media.entity.AudioAttributes;
+import com.serio.media.entity.AudioInfo;
+import com.serio.media.entity.EncodingAttributes;
+import com.serio.media.entity.MultimediaInfo;
+import com.serio.media.entity.VideoAttributes;
+import com.serio.media.entity.VideoInfo;
+import com.serio.media.entity.VideoSize;
+import com.serio.media.exception.EncoderException;
+import com.serio.media.exception.InputFormatException;
 
 /**
  * Main class of the package. Instances can encode audio and video streams.
@@ -769,7 +776,21 @@ public class Encoder {
 	}
 	
 	
-	
+	/**
+	 * Parse result of execute ffmpeg
+	 * @param ffmpeg 
+	 * @param source The source multimedia file. It cannot be null. Be sure this
+	 *            file can be decoded (see
+	 *            {@link Encoder#getSupportedDecodingFormats()},
+	 *            {@link Encoder#getAudioDecoders()} and
+	 *            {@link Encoder#getVideoDecoders()}).
+	 * @param durationAttribute
+	 * @param offsetAttribute
+	 * @param listener
+	 * @throws IllegalArgumentException
+	 * @throws InputFormatException
+	 * @throws EncoderException
+	 */
 	public void parseResult( FFMPEGExecutor ffmpeg, File source, Float durationAttribute, Float offsetAttribute, EncoderProgressListener listener ) throws IllegalArgumentException,
 	InputFormatException, EncoderException {
 		

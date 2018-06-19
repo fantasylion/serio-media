@@ -16,40 +16,62 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.serio.core.media;
+package com.serio.media.entity;
+
+import java.io.Serializable;
 
 /**
- * Encoding progress listener interface. Instances of implementing classes could
- * be used to listen an encoding process.
+ * Instances of this class report informations about videos size.
  * 
  * @author Carlo Pelliccia
  */
-public interface EncoderProgressListener {
+public class VideoSize implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
-	 * This method is called before the encoding process starts, reporting
-	 * information about the source stream that will be decoded and re-encoded.
-	 * 
-	 * @param info
-	 *            Informations about the source multimedia stream.
+	 * The video width.
 	 */
-	public void sourceInfo(MultimediaInfo info);
+	private int width;
 
 	/**
-	 * This method is called to notify a progress in the encoding process.
-	 * 
-	 * @param permil
-	 *            A permil value representing the encoding process progress.
+	 * The video height.
 	 */
-	public void progress(int permil);
+	private int height;
 
 	/**
-	 * This method is called every time the encoder need to send a message
-	 * (usually, a warning).
+	 * It builds the bean.
 	 * 
-	 * @param message
-	 *            The message sent by the encoder.
+	 * @param width
+	 *            The video width.
+	 * @param height
+	 *            The video height.
 	 */
-	public void message(String message);
+	public VideoSize(int width, int height) {
+		this.width = width;
+		this.height = height;
+	}
+
+	/**
+	 * Returns the video width.
+	 * 
+	 * @return The video width.
+	 */
+	public int getWidth() {
+		return width;
+	}
+
+	/**
+	 * Returns the video height.
+	 * 
+	 * @return The video height.
+	 */
+	public int getHeight() {
+		return height;
+	}
+
+	public String toString() {
+		return this.getWidth() + "x" + this.getHeight();
+	}
 
 }

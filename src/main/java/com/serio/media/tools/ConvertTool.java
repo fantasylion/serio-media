@@ -1,4 +1,4 @@
-package com.serio.core.media;
+package com.serio.media.tools;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class ConvertTool{
    * @param: srcFilePath, absolute path of source file
    * @param: destFilePath, absolute path
    */
-    public static boolean IsConvertable(String srcFilePath, String destFilePath) {
+    public static boolean isConvertable(String srcFilePath, String destFilePath) {
       if (new File(destFilePath).isFile()) {
         logger.warn("File {} is exist", destFilePath);
         return false;
@@ -35,7 +35,7 @@ public class ConvertTool{
      * @param: destVideoFile, absolute path
      */
     public static List<String> getConvertTSCommand(String srcVideoPath, String destVideoFile) {
-      if (IsConvertable(srcVideoPath, destVideoFile)) {
+      if (isConvertable(srcVideoPath, destVideoFile)) {
         String ffmpegName = System.getProperty("os.name").contains("Windows")? "ffmpeg.exe":"ffmpeg";
         List<String> command = new ArrayList<String>();
         command.add(FileConfig.getConvertToolsDir() + ffmpegName);
@@ -61,7 +61,7 @@ public class ConvertTool{
      * @param: destVideoFile, absolute path
      */
     public static List<String> getConvertRateCommand(String srcVideoPath, String bitRate, String size, String destVideoFile) {
-      if (IsConvertable(srcVideoPath, destVideoFile)) {
+      if (isConvertable(srcVideoPath, destVideoFile)) {
         String ffmpegName = System.getProperty("os.name").contains("Windows")? "ffmpeg.exe":"ffmpeg";
         List<String> command = new ArrayList<String>();
         command.add(FileConfig.getConvertToolsDir() + ffmpegName);
@@ -95,7 +95,7 @@ public class ConvertTool{
      * @param: distImageFile, absolute path
      */
     public static List<String> getCaptureImageCommand(String srcVideoPath, String size, String distImageFile) {
-      if (IsConvertable(srcVideoPath, distImageFile)) {
+      if (isConvertable(srcVideoPath, distImageFile)) {
         String ffmpegName = System.getProperty("os.name").contains("Windows")? "ffmpeg.exe":"ffmpeg";
         List<String> command = new ArrayList<String>();
         command.add(FileConfig.getConvertToolsDir() + ffmpegName);

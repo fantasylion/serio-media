@@ -1,4 +1,4 @@
-package com.serio.core.media;
+package com.serio.media.constant;
 
 /**
  * @author zl.shi

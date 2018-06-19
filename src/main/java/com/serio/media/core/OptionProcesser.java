@@ -1,4 +1,4 @@
-package com.serio.core.media;
+package com.serio.media.core;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -8,9 +8,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import com.serio.core.annotation.AnnotationProcesser;
-import com.serio.core.annotation.media.FfmpegOption;
-import com.serio.core.annotation.media.FfmpegOption.OptionType;
 import com.serio.core.utils.ReflectionUtils;
+import com.serio.media.annotation.FfmpegOption;
+import com.serio.media.entity.AudioAttributes;
+import com.serio.media.entity.EncodingAttributes;
+import com.serio.media.entity.VideoAttributes;
 
 /**
  * The ffmpeg options handle

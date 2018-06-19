@@ -1,10 +1,20 @@
-package com.serio.core.media;
+package com.serio.media.application;
 
 import java.io.File;
 import java.io.IOException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.serio.media.constant.MediaConstant;
+import com.serio.media.core.DefaultFFMPEGLocator;
+import com.serio.media.core.Encoder;
+import com.serio.media.core.FFMPEGExecutor;
+import com.serio.media.core.FFMPEGLocator;
+import com.serio.media.entity.AudioAttributes;
+import com.serio.media.entity.EncodingAttributes;
+import com.serio.media.exception.EncoderException;
+import com.serio.media.exception.InputFormatException;
 
 /**
  * @author zl.shi
@@ -100,7 +110,7 @@ public class AudioProcessor {
 	/**
 	 * 转码
 	 * <p>
-	 * eg:<br>
+	 * e.g.:<br>
 	 * 	videoSource:"C:\\Users\\serio\\Videos\\3zhzI640.mp4"
 	 *  destSource:"C:\\Users\\serio\\Videos\\3zhzI640.3gp
 	 * </p>

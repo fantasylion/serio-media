@@ -16,31 +16,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.serio.core.media;
+package com.serio.media.core;
 
 /**
- * Encoding expection.
+ * A package-private utility to add a shutdown hook to kill ongoing encoding
+ * processes at the jvm shutdown.
  * 
  * @author Carlo Pelliccia
  */
-public class EncoderException extends Exception {
+class ProcessKiller extends Thread {
 
-	private static final long serialVersionUID = 1L;
+	/**
+	 * The process to kill.
+	 */
+	private Process process;
 
-	EncoderException() {
-		super();
+	/**
+	 * Builds the killer.
+	 * 
+	 * @param process
+	 *            The process to kill.
+	 */
+	public ProcessKiller(Process process) {
+		this.process = process;
 	}
 
-	EncoderException(String message) {
-		super(message);
-	}
-
-	EncoderException(Throwable cause) {
-		super(cause);
-	}
-
-	EncoderException(String message, Throwable cause) {
-		super(message, cause);
+	/**
+	 * It kills the supplied process.
+	 */
+	public void run() {
+		process.destroy();
 	}
 
 }

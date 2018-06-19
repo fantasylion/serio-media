@@ -2,11 +2,12 @@ package com.serio.core.utils.media;
 
 import java.io.File;
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.serio.core.media.EncoderException;
-import com.serio.core.media.VideoProcessor;
+import com.serio.media.application.VideoProcessor;
+import com.serio.media.exception.EncoderException;
 
 /**
  * @author zl.shi
@@ -19,8 +20,8 @@ public class VideoTest {
 //	@Test
 	public void testCut() {
 		
-		File source = new File("C:\\Users\\zhengliang.shi\\Videos\\3zhzI640.mp4");
-		File target = new File("C:\\Users\\zhengliang.shi\\Videos\\3zhzI64sssss17.jpg");
+		File source = new File("C:/Users/zhengliang.shi/Videos/3zhzI640.mp4");
+		File target = new File("C:/Users/zhengliang.shi/Videos/3zhzI640.jpg");
 		try {
 			VideoProcessor videoProcessor = new VideoProcessor();
 			videoProcessor.videoCapture(source, target, 340f, 640, 360);
@@ -30,11 +31,11 @@ public class VideoTest {
 		
 	}
 	
-//	@Test
+	@Test
 	public void testTrasncoder() {
 		
-		File source = new File("C:\\Users\\zhengliang.shi\\Videos\\3zhzI640.mp4");
-		File target = new File("C:\\Users\\zhengliang.shi\\Videos\\3zhzI64sssss17.3gp");
+		File source = new File("C:/Users/zhengliang.shi/Videos/3zhzI640.mp4");
+		File target = new File("C:/Users/zhengliang.shi/Videos/3zhzI640.3gp");
 		try {
 			VideoProcessor videoProcessor = new VideoProcessor();
 			videoProcessor.transcode(source, target);
@@ -43,29 +44,5 @@ public class VideoTest {
 		}
 		
 	}
-	
-	public void ebbinghausForgettingCurve() {
-		
-		int[] forgetTime = { 2, 4 , 7 ,15 };
-		
-		int listNum = 38;
-		
-		System.out.println("			新学		背诵");
-		for ( int i = 0; i < listNum; i++ ) {
-			System.out.print("第"+(i+1)+"天：	");
-			System.out.print( "		list"+(i+1) );
-			
-			for ( int forget = 0; forget < forgetTime.length; forget++  ) {
-				if ( (i+1) > forgetTime[forget] - 1 ) {
-					System.out.print( "		*list"+((i+1) - (forgetTime[forget] - 1)) );
-				}
-			}
-			
-			System.out.println( "		*list"+(i+1) );
-		}
-		
-		
-	}
-	
 	
 }

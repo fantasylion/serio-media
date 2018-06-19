@@ -16,13 +16,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.serio.core.media;
+package com.serio.media.core;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
+import com.serio.media.core.FFMPEGLocator;
 
 /**
  * The default ffmpeg executable locator, which exports on disk the ffmpeg

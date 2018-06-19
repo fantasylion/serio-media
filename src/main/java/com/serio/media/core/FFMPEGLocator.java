@@ -16,23 +16,37 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.serio.core.media;
+package com.serio.media.core;
+
+import com.serio.media.core.Encoder;
+import com.serio.media.core.FFMPEGExecutor;
 
 /**
- * This expection is thrown if a source file format is not recognized.
+ * Abstract class whose derived concrete instances are used by {@link Encoder}
+ * to locate the ffmpeg executable path.
  * 
  * @author Carlo Pelliccia
+ * @see Encoder
  */
-public class InputFormatException extends EncoderException {
+public abstract class FFMPEGLocator {
 
-	private static final long serialVersionUID = 1L;
+	/**
+	 * This method should return the path of a ffmpeg executable suitable for
+	 * the current machine.
+	 * 
+	 * @return The path of the ffmpeg executable.
+	 */
+	protected abstract String getFFMPEGExecutablePath();
 
-	InputFormatException() {
-		super();
-	}
-
-	InputFormatException(String message) {
-		super(message);
+	/**
+	 * It returns a brand new {@link FFMPEGExecutor}, ready to be used in a
+	 * ffmpeg call.
+	 * 
+	 * @return A newly instanced {@link FFMPEGExecutor}, using this locator to
+	 *         call the ffmpeg executable.
+	 */
+	public FFMPEGExecutor createExecutor() {
+		return new FFMPEGExecutor(getFFMPEGExecutablePath());
 	}
 
 }

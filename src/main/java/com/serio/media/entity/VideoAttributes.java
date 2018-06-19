@@ -16,12 +16,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.serio.core.media;
+package com.serio.media.entity;
 
 import java.io.Serializable;
 
-import com.serio.core.annotation.media.FfmpegOption;
-import com.serio.core.annotation.media.FfmpegOption.OptionType;
+import com.serio.media.annotation.FfmpegOption;
+import com.serio.media.annotation.FfmpegOption.OptionType;
+import com.serio.media.core.Encoder;
 
 /**
  * Attributes controlling the video encoding process.

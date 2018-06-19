@@ -16,62 +16,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.serio.core.media;
-
-import java.io.Serializable;
+package com.serio.media.exception;
 
 /**
- * Instances of this class report informations about videos size.
+ * This expection is thrown if a source file format is not recognized.
  * 
  * @author Carlo Pelliccia
  */
-public class VideoSize implements Serializable {
+public class InputFormatException extends EncoderException {
 
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The video width.
-	 */
-	private int width;
-
-	/**
-	 * The video height.
-	 */
-	private int height;
-
-	/**
-	 * It builds the bean.
-	 * 
-	 * @param width
-	 *            The video width.
-	 * @param height
-	 *            The video height.
-	 */
-	public VideoSize(int width, int height) {
-		this.width = width;
-		this.height = height;
+	public InputFormatException() {
+		super();
 	}
 
-	/**
-	 * Returns the video width.
-	 * 
-	 * @return The video width.
-	 */
-	public int getWidth() {
-		return width;
-	}
-
-	/**
-	 * Returns the video height.
-	 * 
-	 * @return The video height.
-	 */
-	public int getHeight() {
-		return height;
-	}
-
-	public String toString() {
-		return this.getWidth() + "x" + this.getHeight();
+	public InputFormatException(String message) {
+		super(message);
 	}
 
 }

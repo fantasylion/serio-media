@@ -1,4 +1,4 @@
-package com.serio.core.media;
+package com.serio.media.application;
 
 import java.awt.Graphics2D;
 import java.awt.Image;

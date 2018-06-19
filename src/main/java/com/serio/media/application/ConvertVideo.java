@@ -1,4 +1,4 @@
-package com.serio.core.media;
+package com.serio.media.application;
 //失败的话把文件移到失败文件目录
 import java.io.BufferedReader;
 import java.io.File;

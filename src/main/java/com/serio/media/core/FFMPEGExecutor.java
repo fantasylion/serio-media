@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.serio.core.media;
+package com.serio.media.core;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,12 +26,15 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.serio.media.core.FFMPEGExecutor;
+import com.serio.media.core.ProcessKiller;
+
 /**
  * A ffmpeg process wrapper.
  * 
  * @author Carlo Pelliccia
  */
-class FFMPEGExecutor {
+public class FFMPEGExecutor {
 	
 	protected static Logger logger = LoggerFactory.getLogger(FFMPEGExecutor.class);
 	
@@ -128,7 +131,6 @@ class FFMPEGExecutor {
 			sb.append(c);
 			sb.append(" ");
 		}
-		
 		logger.debug( sb.toString() );
 	}
 	
