@@ -3,13 +3,15 @@ package com.serio.media.application;
 import java.io.File;
 import java.io.IOException;
 
-import com.serio.media.core.DefaultFFMPEGLocator;
-import com.serio.media.core.FFMPEGLocator;
 import com.serio.media.constant.MediaConstant;
+import com.serio.media.core.DefaultFFMPEGLocator;
 import com.serio.media.core.Encoder;
+import com.serio.media.core.FFMPEGLocator;
 import com.serio.media.entity.AudioAttributes;
 import com.serio.media.entity.EncodingAttributes;
+import com.serio.media.entity.MultimediaInfo;
 import com.serio.media.entity.VideoAttributes;
+import com.serio.media.entity.VideoInfo;
 import com.serio.media.entity.VideoSize;
 import com.serio.media.exception.EncoderException;
 import com.serio.media.exception.InputFormatException;
@@ -101,6 +103,21 @@ public class VideoProcessor {
 		
 		Encoder encoder = new Encoder();
 		encoder.encode( videoSource, destSource, attrs );
+	}
+	
+	
+	/**
+	 * Read the specific source path get the video info.
+	 * @param source
+	 * @throws EncoderException 
+	 * @throws InputFormatException 
+	 */
+	public VideoInfo getVideInfo( File source ) throws InputFormatException, EncoderException {
+		
+		Encoder encoder = new Encoder();
+		MultimediaInfo mediaInfo = encoder.getInfo(source);
+		return mediaInfo.getVideo();
+		
 	}
 	
 
