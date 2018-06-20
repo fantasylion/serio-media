@@ -36,4 +36,14 @@ Process media files
 		
 	}
 	
+	public void testVideoInfo() {
+		try {
+			File source = new File("C:\\Users\\serio.shi\\Videos\\3zhzI640.mp4");
+			VideoProcessor videoProcessor = new VideoProcessor();
+			videoProcessor.getVideInfo( source );
+		} catch (EncoderException e) {
+			e.printStackTrace();
+		}
+	}
+	
 ```
