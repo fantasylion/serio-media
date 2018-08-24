@@ -4,6 +4,35 @@ Process media files
 主要用于处理视频、 音频、 图片等一些媒体资源，代码基于`sauronsoftware`开源项目进行优化和升级。
 [点击查看文档](http://www.sauronsoftware.it/projects/jave/manual.php)
 
+
+## maven可以通过以下方式来配置 `pom.xml`:
+
+```XML
+<project>
+
+    <properties>
+        <version.serio>0.0.1</version.serio>
+    </properties>
+    
+        <repositories>
+                <repository>
+                    <id>serio-repository</id>
+                    <url>https://raw.githubusercontent.com/fantasylion/serio-repository/master</url>
+                </repository>
+        </repositories> 
+
+        
+    <dependencies>
+        <dependency>
+            <groupId>com.serio</groupId>
+            <artifactId>serio-media</artifactId>
+            <version>${version.serio}</version>
+        </dependency>
+    </dependencies>
+    
+</project>
+```
+
 ##### MediaDemo
 
 ```JAVA
